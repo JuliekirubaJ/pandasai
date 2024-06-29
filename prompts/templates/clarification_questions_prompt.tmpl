@@ -1,0 +1,22 @@
+{% for df in context.dfs %}{% set index = loop.index %}{% include 'shared/dataframe.tmpl' with context %}{% endfor %}
+
+<conversation>
+{{context.memory.get_conversation()}}
+</conversation>
+
+
+-Identify the Outputs Requested: Carefully read the user's "{{query}}" to identify all the different types of outputs requested. Outputs can be:
+1.Tables or Dataframes
+2.Plots (graphs or charts)
+3.String Answers (textual responses)
+
+-split the query for Each Output Type
+
+-number questions = number of output types requested in the query 
+
+Example:
+['Question 1', 'Question 2']
+
+Return a JSON list of the splitted questions strings.
+
+Json:
